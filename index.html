@@ -31,7 +31,10 @@
 <body>
 <header>
   <img class="logo" src="./img/logo.svg" alt="">
-  <p class="thweek">4th week </p>
+  <div class="thweekDiv">
+
+    <p class="thweek">4th week </p>
+  </div>
 
 <!-- 以下モーダル -->
   <div>
@@ -198,7 +201,7 @@
         
         <div class="studyComment">
           <p class="studyBold">Twitter用コメント</p>
-          <input type="text" class="studyGrayTwitter"></input>
+          <input type="text" id="twitterText" class="studyGrayTwitter"></input>
         </div>
         
         <label class="share">
@@ -240,7 +243,7 @@
 
           <div class="loader" ></div>
         </dialog>
-        
+
         <dialog class=" complete">
           <!-- モーダルウィンドウ内を閉じるボタンの指定 -->
           <button id="close">×</button>
@@ -305,35 +308,47 @@
   
   
   <section class="barGraph">
-    <canvas id="myChart" width="400px" height="400px"></canvas>
+    <div class="barsize">
+
+      <canvas id="myChart" ></canvas>
+    </div>
 
   </section>
 </div>
+
+<!-- <canvas id="testChart" width="300px" height="400px"></canvas> -->
+
   <!-- </div> -->
 
 
   <!-- <div class="flex"> -->
-    <section class="language"> 
-      <h2 class="h2">学習言語</h2>
-      <canvas id="languageChart" width="300px" height="300px"></canvas>
-      <script src=""></script>
-      
-    </section>
-  <!-- </div> -->
+    <div class="mobileFlex">
 
-  <!-- <div class="flex"> -->
-    <section class="content">
-      <h2 class="h2">学習コンテンツ</h2>
-      <canvas id="contentChart" width="300px" height="300px"></canvas>
-
-    </section>
+      <section class="language"> 
+        <h2 class="h2">学習言語</h2>
+  
+  
+          <canvas id="languageChart" width="300px" height="300px"></canvas>
+  
+        <script src=""></script>
+        
+      </section>
+    <!-- </div> -->
+  
+    <!-- <div class="flex"> -->
+      <section class="content">
+        <h2 class="h2">学習コンテンツ</h2>
+        <canvas id="contentChart"></canvas>
+  
+      </section>
+    </div>
   </div>
 
 
 
 <section class="yearMonth">
   <div class="left"></div>
-<p>2020年10月</p>
+<p class="yearMonthText">2020年10月</p>
   <div class="right"></div>
 </section>
 
@@ -348,7 +363,10 @@
 
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
-<!-- <script src="./js/chartjs-plugin-labels.js"></script> -->
+<script src="./js/chartjs-plugin-labels.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 <script src="./js/script.js"></script>
 <script>
   flatpickr("#flatpickr", {});

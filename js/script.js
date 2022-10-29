@@ -80,7 +80,7 @@ window.myPie = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: 
-    ["1",'2',"3", '4',"5", '6',"7", '8',"9", '10', "11",'12',"13",'14',"15", '16', "17",'18', "19",'20',"21", '22',"23", '24',"25",'26', "27",'28', "29",'30']
+    ["",'2',"", '4',"", '6',"", '8',"", '10', "",'12',"",'14',"", '16', "",'18', "",'20',"", '22',"", '24',"",'26', "",'28', "",'30']
     ,
     datasets: [{
       data: [
@@ -88,56 +88,163 @@ window.myPie = new Chart(ctx, {
           3,4,5,3,0,0,4,2,2,8,8,2,2,1,7,4,4,3,3,3,2,2,6,2,2,1,1,1,7,8
       
       ],
+      backgroundColor: "rgb(121,211,255)",
+      // xAxisID:'x',
+      // yAxisID: 'y',
     }],
   },
   options: {
-    scales: {
-  
-      
+    plugins:{
+        legend: {
+        display: false,
     }
+    },
+    scales:{
+      x:                           // Ｘ軸設定
+      {
+          title: {                 // 軸ラベル
+              display: false,                // 表示設定
+              labelString: '横軸ラベル',    // ラベル
+              fontColor: "red",             // 文字の色
+              fontSize: 10                  // フォントサイズ
+          },
+          grid: {                   // 補助線
+              color: "rgba(255, 0, 0, 0.2)",
+              display: false,   // 補助線の色
+          },
+          ticks: {                      // 目盛り
+              fontColor: "red",             // 目盛りの色
+              fontSize: 14,                  // フォントサイズ
+              stepSize: 2,
+              min: 0,
+              max: 30,
+              autoSkip:false,
+              maxRotation:0,
+          }
+      }
+  ,
+      y:{
+        // display:false,
+        title:{
+          display: false,
+        },
+        grid:{
+          display:false
+        },
+        ticks:{
+          stepSize: 2,
+          min: 0,
+          max: 8,
+        }
+      }
+    },
           //beginAtZero: true
       
   },
-    responsive: false
+    responsive: true
   }
 );
+
 
 var ctx = document.getElementById("languageChart").getContext("2d");
 window.myPie = new Chart(ctx, {
   type: 'doughnut',
   data: {
     labels: 
-    ['CSS','HTML', 'SHELL','SQL', 'Javascript',  'PHP', 'Laravel',  '  情報システム基礎知識（その他）']
-    ,
+    ['CSS','HTML', 'SHELL','SQL', 'Javascript',  'PHP', 'Laravel',  '  情報システム基礎知識（その他）'],
     datasets: [{
       label: "",
       data: [30,20,20,20,10,5,5,10],
+
+      backgroundColor:["#fa8072", "#00ff7f", "#00bfff", "#a9a9a9", "#f5f5f5","#008080","#ff6347","#f0e68c"]
+    }],
+  },
+
+  options: {
+    legend:{
+display:true,
+position:'bottom',
+    },
+    plugins: {
+      
+      tooltip: {
+           enabled: false
+     },
+      datalabels: {
+         font: {
+             size: 13
+         },
+         formatter: function( value, context ) {
+             return value.toString() + '%';
+         }
+      }
+    },
+ },
+
+ plugins: [
+     ChartDataLabels,
+ ],
+  
+});
+
+var ctx = document.getElementById("contentChart").getContext("2d");
+window.myPie = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: 
+    ['N予備校','ドットインストール', 'POSSE課題'],
+    datasets: [{
+      label: "",
+      data: [40,20,20],
       backgroundColor:["#fa8072", "#00ff7f", "#00bfff", "#a9a9a9", "#f5f5f5"]
     }],
   },
+
   options: {
-    scales: {
-      // plugins: {
-      //   labels: {
-      //     render: 'percentage',
-      //     fontColor: 'white',
-      //   }
-      // }
-      
-    }
-    //beginAtZero: true
-    
-  },
-  pieceLabel: {
-    render: 'percentage',
-    arc:true
-},
-  responsive: false
-  }
-);
+    legend:{
+display:true,
+position:'bottom',
+    },
+    plugins: {
+      colorschemes: {
+        scheme: 'brewer.Paired12'
+    },
+      tooltip: {
+           enabled: false
+     },
+      datalabels: {
+         font: {
+             size: 13
+         },
+         formatter: function( value, context ) {
+             return value.toString() + '%';
+         }
+      }
+    },
+ },
+
+ plugins: [
+     ChartDataLabels,
+ ],
+  
+});
 
 
 
+
+// new Chart(context, {
+//   type: 'bar',
+//   data: {
+//     labels: ['2015年', '2016年', '2017年', '2018年', '2019年', '2020年'],
+//     datasets: [{
+//       label: "日本の人口推移",
+//       data: [127094745, 127041812, 126918546, 126748506, 126555078, 126146099],
+//     }],
+//   },
+//   options: {
+//     responsive: false
+//   }
+// })
 
 
 
@@ -205,13 +312,17 @@ modal1Button.addEventListener('click', function() {
 // twitter遷移
 let twitterCheck = document.getElementById('twitterCheck'); 
 var ok = document.getElementsByClassName('ok'); 
+const twitterText = document.getElementById("twitterText")
 // if (twitterCheck.click) {
 //   alert('クリックされました');
 // };
 
 twitterCheck.addEventListener('click', function() { 
-
-  btn_open.classList.add('ok');
+  // btn_open.classList.add('ok');
+  btn_open.addEventListener('click', function() { 
+    location.replace("https://twitter.com/compose/tweet?text= "+twitterText.value )
+  }
+  );
 
 }
 );
@@ -220,5 +331,7 @@ twitterCheck.addEventListener('click', function() {
 // });
 twitterCheck.addEventListener('click', function() {
 
-window.open('https://twitter.com/?lang=ja');
+// window.open('https://twitter.com/compose/tweet');
+
 })
+

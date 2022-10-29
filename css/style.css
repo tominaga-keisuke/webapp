@@ -9,11 +9,16 @@ header{
   margin-right: 25px;
   padding: 15px;
 }
+@media screen and (max-width: 768px) {.logo{
+  width: 150px;
+  }}
 .thweek{
   color:skyblue;
   margin-top: 25px;
+  white-space:nowrap;
 
 }
+
 .record{
   color: white;
   border: 3px;
@@ -40,6 +45,9 @@ padding-top: 20px;
 .flex{
 display: flex;
 }
+@media screen and (max-width: 768px) {.flex{
+flex-flow: column;
+  }}
 
 /* 左側のみかけてる */
 .column{
@@ -50,17 +58,26 @@ display: flex;
 
 }
 
+
+.mobileFlex{
+display: flex;
+}
+
+
 .statistics{
   display: flex;
   gap: 20px;
   margin-left: 120px;
   margin-right: 0;
+  margin-bottom: 20px;
   padding-right: 0;
   padding: 0;
+  width: 600px;
 
 }
 @media screen and (max-width: 768px) {.statistics{
-width: 30%;
+width: 170px;
+margin-left: 20px;
 
   }}
 
@@ -71,41 +88,55 @@ width: 30%;
   border-radius: 10px;
   padding-left: 65px;
   padding-right: 65px;
-  padding-bottom: ;
+  padding-bottom:30% ;
   background-color: white;
   box-shadow: 0px 0px 10px 1px lightgray;
-  width: 28%;
-  height: 100%;
+  width: 30%;
+  height: 10px;
 }
 @media screen and (max-width: 768px) {.today{
-  width: 50%;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
   }}
 
 .month{
   text-align: center;
   border: 3px;
   border-radius: 10px;
-  padding-left: 65px;
-  padding-right: 65px;
+  padding-left: 55px;
+  padding-right: 85px;
+  padding-bottom:30% ;
   background-color: white;
   box-shadow: 0px 0px 10px 1px lightgray;
   width: 30%;
-  height: 100%;
+  height: 10px;
 
 }
+@media screen and (max-width: 768px) {.month{
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }}
 .total{
   
   text-align: center;
   border: 3px;
   border-radius: 10px;
-  padding-left: 65px;
-  padding-right: 65px;
+  padding-left: 45px;
+  padding-right: 85px;
+  padding-bottom:30% ;
   background-color: white;
   box-shadow: 0px 0px 10px 1px lightgray;
   width: 30%;
-  height: 100%;
+  height: 10px;
 
-}
+}@media screen and (max-width: 768px) {.total{
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }}
+
 .monthText{
 text-align: center;
 
@@ -117,6 +148,9 @@ text-align: center;
   margin-bottom: 0;
   text-align: center;
 }
+@media screen and (max-width: 768px) {.blue{
+font-size: 12px;
+  }}
 .figure{
   font-size: 36px;
   font-weight:1000;
@@ -125,6 +159,10 @@ text-align: center;
   text-align: center;
   
 }
+@media screen and (max-width: 768px) {.figure{
+  font-size: 16px;
+  font-weight: 700;
+  }}
 .hour{
   color: skyblue;
   font-size: 20px;
@@ -132,24 +170,41 @@ text-align: center;
   margin-bottom: 0;
   text-align: center;
 }
-
+@media screen and (max-width: 768px) {.hour{
+  font-size: 10px;
+  }}
 
 .barGraph{
+  position: relative;
 margin-top: 20px;
 margin-left: 110px;
 margin-right: 0;
+margin-bottom: 0;
 padding: 0;
+background-color: white;
+/* height: 100%; */
+width: 80%;
+height: 300px;
+padding-top: 100px;
+/* width:400px;
+/* height: 200px; * */
 }
 @media screen and (max-width: 768px) {.barGraph{
-  width: 200px;
+  width: 300px;
+  height: 100px;
+  margin-left: 20px;
+  margin-bottom: 30px;
   }}
 
 
-.barGraph img{
+.barsize{
 
 }
 
 #myChart{
+  /* width: 300px;
+  height: 200px; */
+  height: 100%;
   }
 
 
@@ -161,7 +216,16 @@ padding: 0;
   box-shadow: 0px 0px 10px 1px lightgray;
   border-radius: 10px;
   padding: 20px;
+  height: 590px;
+  width: 300px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
+@media screen and (max-width: 768px) {.language{
+width: 160px;
+margin-left: 20px;
+height: 300px;
+}}
 
 .content{
   background-color: white;
@@ -169,11 +233,26 @@ padding: 0;
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 120px;
+  margin-top: 20px;
   padding: 20px;
-}
+  width: 300px;
+  height: 590px;
 
-.yearMonth{
+
+}
+@media screen and (max-width: 768px) {.content{
+width: 160px;
+margin-right: 20px;
+}}
+@media screen and (max-width: 768px) {.h2{
+font-size: 16px;
+text-align: center;
+  }}
+
+
+.yearMonthText{
   text-align: center;
+  margin-bottom: 0;
 }
 
 .footer{
@@ -366,9 +445,13 @@ display: table-column;
     transition: all 0.3s;
     display: block;
     text-decoration: none;
-    transform: translateX(70vw);
+    transform: translateX(60vw);
 }
-
+@media screen and (max-width: 768px) {.modal-button{
+  width:300px;
+  transform: translateX(0vw);
+  transform: translateY(1400px);
+  }}
 
 .modal-button:active {
   /*ボタンを押したとき*/
@@ -389,9 +472,13 @@ font-family: "Font Awesome 5 Free";
   color: #FFFFFF;
   background-color: #4f96f6;
   transition: .6s;
-  transform: translateX(70vw);
+  transform: translateX(60vw);
   /* これないと動く */
 }
+@media screen and (max-width: 768px) {.modal-button:hover{
+  transform: translateX(0vw);
+}}
+
 
 .modal-wrapper:not(:target) {
   opacity: 0;
@@ -433,6 +520,7 @@ font-family: "Font Awesome 5 Free";
   overflow-y: auto;
   text-align: left;
   border: none;
+  z-index: 20;
 }
 
 .modal_title {
@@ -740,9 +828,9 @@ transform: translateY(-50%);
 }
 
 /* スクロールできる高さを出すための設定 */
-section {
+/* section {
   height: 200vh;
-}
+} */
 
 
 
